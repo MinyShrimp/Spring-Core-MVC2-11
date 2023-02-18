@@ -21,7 +21,7 @@ import java.util.Collection;
 @Controller
 @RequestMapping("/servlet/v2")
 public class ServletUploadControllerV2 {
-    
+
     private final String fileDir;
 
     public ServletUploadControllerV2(
@@ -36,7 +36,7 @@ public class ServletUploadControllerV2 {
     }
 
     @PostMapping("/upload")
-    public String saveFileV1(
+    public String saveFile(
             HttpServletRequest req
     ) throws ServletException, IOException {
         log.info("request = {}", req);
@@ -65,7 +65,7 @@ public class ServletUploadControllerV2 {
             // 데이터 읽기
             InputStream inputStream = part.getInputStream();
             String body = StreamUtils.copyToString(inputStream, StandardCharsets.UTF_8);
-            log.info("body = {}", body);
+            // log.info("body = {}", body);
 
             // 파일에 저장하기
             if (StringUtils.hasText(part.getSubmittedFileName())) {
